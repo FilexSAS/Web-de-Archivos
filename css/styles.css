@@ -414,7 +414,7 @@ footer {
 /* =========================================================
    RESPONSIVE DESIGN
 ========================================================= */
-@media (max-width: 100%) {
+@media (max-width: 768px) {
     /* Header Responsive */
     .main-header {
         padding: 5px;
@@ -482,7 +482,7 @@ footer {
 /* =========================================================
    FOOTER RESPONSIVE
    =========================== */
-@media (max-width: 100%) {
+@media (max-width: 768px) {
     .footer-content {
         flex-direction: column;
         align-items: stretch;
