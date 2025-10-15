@@ -126,6 +126,10 @@ h1 {
     margin-top: 50px;
 }
 
+.downloads-grid + .intro-section {
+    margin-top: 60px;
+}
+
 .download-card {
     background: #ffffff;
     border-radius: 8px;
@@ -276,9 +280,10 @@ footer {
 }
 
 .footer-logo-img-large {
-    width: 90px;
-    height: 100px;
-    margin-bottom: 15px;
+    width: 180px;
+    height: auto;
+    margin-bottom: 1px;
+    object-fit: contain;
 }
 
 /* Responsive Footer */
@@ -306,9 +311,9 @@ footer {
     }
 
     .footer-logo-img-large {
-        width: 85px;
-        height: 95px;
-        margin-bottom: 20px;
+        width: 170px;
+        height: auto;
+        margin-bottom: 1px;
     }
 
 
@@ -318,9 +323,9 @@ footer {
     }
 
     .footer-logo-img-large {
-        width: 130px;
-        height: 120px;
-        margin-bottom: 15px;
+        width: 180px;
+        height: auto;
+        margin-bottom: 1px;
         margin-top: 10px;
     }
 
@@ -426,10 +431,6 @@ footer {
         gap: 15px;
     }
 
-    .logo-img {
-        height: 45px;
-    }
-
     .nav-menu {
         width: 100%;
         justify-content: center;
@@ -477,12 +478,7 @@ footer {
         font-size: 22px;
     }
 
-}
-
-/* =========================================================
-   FOOTER RESPONSIVE
-   =========================== */
-@media (max-width: 768px) {
+    /* Footer Responsive */
     .footer-content {
         flex-direction: column;
         align-items: stretch;
@@ -498,14 +494,14 @@ footer {
         max-width: unset;
     }
     .footer-logo-area {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
     
     .footer-logo-img-large {
-    margin-bottom: 15px;
+        margin-bottom: 1px;
     }
 }
 /* ===========================

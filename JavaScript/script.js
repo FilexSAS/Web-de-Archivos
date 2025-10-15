@@ -1,3 +1,14 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const downloadButtons = document.querySelectorAll('.download-btn');
+
+    downloadButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const fileName = button.dataset.file;
+            downloadFile(fileName);
+        });
+    });
+});
+
 function downloadFile(fileName) {
     // Configura aquí las rutas reales de tus archivos
     const files = {
@@ -10,9 +21,6 @@ function downloadFile(fileName) {
         alert('Esta guía aún no está disponible para descargar.');
         return;
     }
-
-    // Simulación de descarga - reemplaza con la ruta real del archivo
-    //alert(`Iniciando descarga de: ${fileName}`);
 
     // Implementa la descarga real
     const link = document.createElement('a');
