@@ -8,22 +8,7 @@
     <link rel="icon" href="imagenes/img1.png" type="image/png">
 </head>
 <body>
-    <header class="main-header">
-        <div class="header-content">
-            <div class="logo-area">
-                <img src="imagenes/img1.png" alt="Logo Filex" class="logo-img">
-            </div>
-            <nav class="nav-menu">
-                <a href="index.html" class="nav-link">Inicio</a>
-                <span class="divider" aria-hidden="true"></span>
-                <a href="documentos.html" class="nav-link">Documentos</a>
-                <span class="divider" aria-hidden="true"></span>
-                <a href="produccion.html" class="nav-link">Producción</a>
-                <span class="divider" aria-hidden="true"></span>
-                <a href="contacto.html" class="nav-link">Contacto</a>
-            </nav>
-        </div>
-    </header>
+    <header class="header"></header>
 
     <main class="container">
         <div class="intro-section">
@@ -38,22 +23,26 @@
         <div class="contact-layout">
             <!-- Panel Izquierdo - Información de Contacto -->
             <div class="contact-info-panel">
-                <div class="download-card">
+                <div class="download-card-Form">
                     <div class="download-icon">📞</div>
                     <h3>Información de Contacto</h3>
                     <div class="contact-details">
                         <div class="contact-item">
-                            <p><strong>Teléfono</strong><br>+57 3052702985</p>
-                            <a href="https://wa.me/573052702985" target="_blank" role="button" aria-label="WhatsApp" class="btn btn-success whatsapp-btn" style="display: inline-flex; align-items: center;">
+                            <p><strong>Numero de Contacto</strong></p>
+                            <a href="https://wa.me/573052702985" target="_blank" style="display: inline-flex; align-items: center;">
                                 <img src="imagenes/whatsapp.png" alt="" class="btn-icon">
-                                <span class="btn-text">WhatsApp</span>
+                                <span>3052702985</span>
                             </a>
                         </div>
                         <div class="contact-item">
                             <p><strong>Correo Electrónico</strong><br>torresdavid.fge@gmail.com</p>
                         </div>
                         <div class="contact-item">
-                            <p><strong>Ubicación</strong><br>Bogotá - Colombia</p>
+                            <p><strong>Ubicación</strong></p>
+                            <p>Direccion Bodega 1 Principal<br> <a href="https://maps.app.goo.gl/mSQ91wdDULWUB2mB6" target="_blank"> Calle 21a #69B - 83</a> </p>
+                            <p style="margin-top: 10px;">Direccion Bodega 2<br><a href="https://maps.app.goo.gl/xTAhP2eZKfZC3bk96" target="_blank">Calle 21a #70 - 58</a>
+</p>
+                            <p style="margin-top: 10px;">Bogotá - Colombia</p>
                         </div>
                     </div>
                 </div>
@@ -61,40 +50,19 @@
 
             <!-- Panel Derecho - Formulario -->
             <div class="contact-form-panel">
-                <div class="download-card">
+                <div class="download-card-Form">
                     <div class="download-icon">✉️</div>
-                    <h3>Formulario de Contacto</h3>
+                    <h3>Generar PQR o Sugerencia</h3>
                     <div class="google-form-container">
-                        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScK4DBQQ32C6lf516cp9zhazyo8wdEY72WNIdSWWPE9QRP1aQ/viewform?embedded=true"></iframe>
-                    </div>
+                        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc3cfEwBRiG6yOuGsc3fNtUwi8d6czgiPjAAEvg1adkJyaH7w/viewform?embedded=true"></iframe>
                 </div>
             </div>
         </div>
     </main>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section footer-contact">
-                <div class="footer-company">
-                    <span class="footer-company-name">DATOS DE CONTANTO SOPORTE WEB</span>
-                    <div class="footer-info"><span></span><br>
-                        <span>+57 3052702985</span><br>
-                        <span>torresdavid.fge@gmail.com</span><br>
-                        <span>Bogotá - Colombia</span>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-section footer-links">
-                <a href="index.html" class="footer-link">Inicio</a>
-                <a href="documentos.html" class="footer-link">Documentos</a>
-                <a href="contacto.html" class="footer-link">Contacto</a>
-                <a href="produccion.html" class="footer-link">Producción</a>                
-            </div>
-            <div class="footer-section footer-logo-area">
-                <img src="imagenes/img1.png" alt="Logo Filex" class="logo-img footer-logo-img-large">
-            </div>
-        </div>
-    </footer>
-    
+    <footer></footer>
+
+    <script src="JavaScript/layout.js"></script>
+    <script type="text/javascript" src="JavaScript/nav.js"></script>
 </body>
 </html>

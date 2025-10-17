@@ -8,31 +8,41 @@
     <link rel="icon" href="imagenes/img1.png" type="image/png">
 </head>
 <body>
-    <header class="main-header">
-        <div class="header-content">
-            <div class="logo-area">
-                <img src="imagenes/img1.png" alt="Logo Filex" class="logo-img">
+    
+    <header class="header">
+        <div class="logo">
+            <img src="imagenes/img1.png" alt="Logo Filex" class="logo-img">
+        </div>
+        <nav>
+           <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="documentos.html">Documentos</a></li>
+                <li><a href="produccion.html">Producción</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+           </ul>            
+        </nav>
+        <a onclick="openNav()" class="menu" href="#"><button>Menu</button></a>
+
+        <div id="mobile-menu" class="overlay">
+            <a onclick="closeNav()" href="" class="close">&times;</a>
+            <div class="overlay-content">
+                <a href="index.html">Inicio</a>
+                <a href="documentos.html">Documentos</a>
+                <a href="produccion.html">Producción</a>
+                <a href="contacto.html">Contacto</a>
             </div>
-                <nav class="nav-menu">
-                    <a href="index.html" class="nav-link">Inicio</a>
-                    <span class="divider" aria-hidden="true"></span>
-                    <a href="documentos.html" class="nav-link">Documentos</a>
-                    <span class="divider" aria-hidden="true"></span>
-                    <a href="produccion.html" class="nav-link">Producción</a>
-                    <span class="divider" aria-hidden="true"></span>
-                    <a href="contacto.html" class="nav-link">Contacto</a>
-                </nav>
         </div>
     </header>
+
     <main>
         <div class="container">
             <div class="intro-section">
-                <h2>Descarga Nuestras Guías Especializadas</h2>
+                <h2>Bienvenido al Portal Documental de FILEX SAS</h2>
                 <p>
-                    Accede a este espacio exclusivo para líderes y coordinadores, 
-                    donde encontrarás guías especializadas que orientan y estandarizan 
-                    los procesos operativos de la empresa, garantizando 
-                    una gestión eficiente y alineada con nuestras mejores prácticas.
+                    Este espacio ha sido creado para facilitar la gestión, 
+                    consulta y registro de la producción documental de la empresa, 
+                    brindando a todos los colaboradores una herramienta práctica, 
+                    centralizada y confiable.
                 </p>
             </div>
 
@@ -64,10 +74,7 @@
                 <div class="download-card">
                     <div class="download-icon">🎯</div>
                     <h3>Proximamente</h3>
-                    <p>
-                        Estamos trabajando en nuevas guías para brindarte más herramientas 
-                        que faciliten la gestión documental en tu organización.
-                    </p>
+                    <p>Estamos trabajando en nuevas guías para brindarte más herramientas que faciliten la gestión documental en tu organización.</p>
                     <button class="download-btn" data-file="guia-fuid">
                         Descargar Guía
                     </button>
@@ -76,28 +83,42 @@
 
             <div class="intro-section">
                 <h2>Registrar mi producción</h2>
-                <p>En este apartado puedes registrar tu producción a lo largo del dia.</p>
-                <h3>En desarrollo</h3>
+                <p style="margin-bottom: 20px;">En este apartado puedes registrar tu producción a lo largo del dia. </p > 
+                <button class="registro-btn" onclick="window.location.href='produccion.html#formulario-produccion'">
+                    Registrar Producción
+                </button>
             </div>
         </div>
     </main>
+
+
     <footer>
         <div class="footer-content">
             <div class="footer-section footer-contact">
                 <div class="footer-company">
                     <span class="footer-company-name">DATOS DE CONTANTO SOPORTE WEB</span>
-                    <div class="footer-info"><span></span><br>
-                        <span>+57 3052702985</span><br>
-                        <span>torresdavid.fge@gmail.com</span><br>
-                        <span>Bogotá - Colombia</span>
+                    <div class="footer-info contact-info-grid">
+                        <div class="contact-info-column">
+                            <h4>Contacto</h4>
+                            <span>+57 3052702985</span>
+                            <span>torresdavid.fge@gmail.com</span>
+                        </div>
+                        <div class="contact-info-column">
+                            <h4>Ubicación</h4>
+                            <span>Direccion Bodega 1 Principal</span>
+                            <span>Calle 21a #69B - 83</span>
+                            <span style="margin-top: 5px;">Direccion Bodega 2</span>
+                            <span>Calle 21a #70 - 58</span>
+                            <span style="margin-top: 5px;">Bogotá - Colombia</span>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="footer-section footer-links">
                 <a href="index.html" class="footer-link">Inicio</a>
                 <a href="documentos.html" class="footer-link">Documentos</a>
-                <a href="contacto.html" class="footer-link">Contacto</a>
-                <a href="produccion.html" class="footer-link">Producción</a>
+                <a href="produccion.html" class="footer-link">Producción</a>                  
+                <a href="contacto.html" class="footer-link">Contacto</a>              
             </div>
             <div class="footer-section footer-logo-area">
                 <img src="imagenes/img1.png" alt="Logo Filex" class="logo-img footer-logo-img-large">
@@ -106,5 +127,6 @@
     </footer>
 
     <script src="JavaScript/script.js"></script>
+    <script type="text/javascript" src="JavaScript/nav.js"></script>
 </body>
 </html>

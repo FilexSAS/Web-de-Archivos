@@ -1,16 +1,25 @@
+/**
+ * @file scriptExel.js
+ * @description Funcionalidad para cargar, filtrar y paginar datos desde archivos CSV de Google Sheets.
+ * @version 1.0
+ * @date 2023-10-27
+ */
+
 document.addEventListener('DOMContentLoaded', () => {
+    /**
+     * @constant {Object} csvUrls - URLs de los archivos CSV de Google Sheets.
+     */
     const csvUrls = {
         'TATIANA': 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTnel9gFxwiiXCxfIFh6AFFfLU2wV5UwVTpWZyyQHOSXspGGxr-x9F_lbOaNkudPEZcnBxrR_kT3GZu/pub?gid=2016677684&single=true&output=csv',
         'MARTHA': 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTnel9gFxwiiXCxfIFh6AFFfLU2wV5UwVTpWZyyQHOSXspGGxr-x9F_lbOaNkudPEZcnBxrR_kT3GZu/pub?gid=512945401&single=true&output=csv',
         'INGRID': 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTnel9gFxwiiXCxfIFh6AFFfLU2wV5UwVTpWZyyQHOSXspGGxr-x9F_lbOaNkudPEZcnBxrR_kT3GZu/pub?gid=1311906305&single=true&output=csv',
-        'ANGIE': 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTnel9gFxwiiXCxfIFh6AFFfLU2wV5UwVTpWZyyQHOSXspGGxr-x9F_lbOaNkudPEZcnBxrR_kT3GZu/pub?gid=1769372944&single=true&output=csv',
-        'WILFER': 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTnel9gFxwiiXCxfIFh6AFFfLU2wV5UwVTpWZyyQHOSXspGGxr-x9F_lbOaNkudPEZcnBxrR_kT3GZu/pub?gid=1093787804&single=true&output=csv'
+        'NICOL': 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTnel9gFxwiiXCxfIFh6AFFfLU2wV5UwVTpWZyyQHOSXspGGxr-x9F_lbOaNkudPEZcnBxrR_kT3GZu/pub?gid=1839129650&single=true&output=csv',
     };
-    const searchInput = document.getElementById('searchInput'); // input de texto
-    const monthSelect = document.getElementById('monthSelect'); // select de mes (opcional)
+    const searchInput = document.getElementById('searchInput');
+    const monthSelect = document.getElementById('monthSelect');
     const liderSelect = document.getElementById('liderSelect');
     const dataTable = document.getElementById('dataTable');
-    const pageSizeSelect = document.getElementById('pageSizeSelect'); // cantidad de filas a mostrar
+    const pageSizeSelect = document.getElementById('pageSizeSelect');
     const paginationControls = document.getElementById('paginationControls');
     let data = [];
     let filteredData = [];
@@ -18,7 +27,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentPage = 1;
     let currentPageSize = pageSizeSelect ? parseInt(pageSizeSelect.value, 10) : 10;
 
-    // Parse CSV robusto (maneja comillas y comas dentro de campos)
+    /**
+     * @function parseCSV
+     * @description Parsea un texto en formato CSV a un array de arrays.
+     * @param {string} text - El texto en formato CSV.
+     * @returns {Array<Array<string>>} - Un array de filas, donde cada fila es un array de columnas.
+     */
     function parseCSV(text) {
         const lines = text.replace(/\r/g, '').split('\n').filter(l => l.trim() !== '');
         const rows = lines.map(line => {
@@ -47,8 +61,13 @@ document.addEventListener('DOMContentLoaded', () => {
         return rows;
     }
 
+    /**
+     * @function loadAndRenderData
+     * @description Carga los datos desde los archivos CSV y los renderiza en la tabla.
+     * @param {string} lider - El nombre del líder para cargar los datos correspondientes.
+     */
     function loadAndRenderData(lider) {
-        const leadersOrder = ['TATIANA', 'MARTHA', 'INGRID', 'ANGIE', 'WILFER'];
+        const leadersOrder = ['TATIANA', 'MARTHA', 'INGRID', 'NICOL',];
         let urlsToFetch = [];
 
         if (lider === 'TODOS') {
@@ -99,12 +118,21 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 
+    /**
+     * @function init
+     * @description Inicializa la carga de datos.
+     */
     function init() {
         const initialLider = liderSelect ? liderSelect.value : 'TODOS';
         loadAndRenderData(initialLider);
     }
 
-    // intenta obtener número de mes a partir de un valor de fecha (1-12) o null si no aplica
+    /**
+     * @function monthFromValue
+     * @description Obtiene el número del mes a partir de un valor de fecha.
+     * @param {string} val - El valor de la fecha.
+     * @returns {number|null} - El número del mes (1-12) o null si no es válido.
+     */
     function monthFromValue(val) {
         if (!val) return null;
         // Parsea específicamente para formato dd/mm/yyyy.
@@ -119,6 +147,13 @@ document.addEventListener('DOMContentLoaded', () => {
         return null;
     }
 
+    /**
+     * @function matchesMonth
+     * @description Verifica si un objeto coincide con un número de mes.
+     * @param {Object} obj - El objeto a verificar.
+     * @param {number} monthNumber - El número del mes a comparar.
+     * @returns {boolean} - `true` si coincide, `false` en caso contrario.
+     */
     function matchesMonth(obj, monthNumber) {
         if (!monthNumber) return true;
         if (!headers || headers.length === 0) return false;
@@ -130,6 +165,13 @@ document.addEventListener('DOMContentLoaded', () => {
         return m === monthNumber;
     }
 
+    /**
+     * @function matchesSearch
+     * @description Verifica si un objeto coincide con un término de búsqueda.
+     * @param {Object} obj - El objeto a verificar.
+     * @param {string} term - El término de búsqueda.
+     * @returns {boolean} - `true` si coincide, `false` en caso contrario.
+     */
     function matchesSearch(obj, term) {
         if (!term) return true;
         const t = term.toLowerCase();
@@ -141,6 +183,10 @@ document.addEventListener('DOMContentLoaded', () => {
         return false;
     }
 
+    /**
+     * @function applyFiltersAndRender
+     * @description Aplica los filtros y renderiza la tabla.
+     */
     function applyFiltersAndRender() {
         const searchTerm = searchInput ? searchInput.value.trim() : '';
         const monthVal = monthSelect ? monthSelect.value : '';
@@ -153,6 +199,10 @@ document.addEventListener('DOMContentLoaded', () => {
         renderPagination();
     }
 
+    /**
+     * @function renderTable
+     * @description Renderiza la tabla con los datos filtrados.
+     */
     function renderTable() {
         if (!dataTable) return;
         if (!headers || headers.length === 0) {
@@ -195,6 +245,10 @@ document.addEventListener('DOMContentLoaded', () => {
         dataTable.innerHTML = html;
     }
 
+    /**
+     * @function renderPagination
+     * @description Renderiza los controles de paginación.
+     */
     function renderPagination() {
         if (!paginationControls) return;
         const totalPages = Math.ceil(filteredData.length / currentPageSize);
@@ -262,7 +316,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // listeners si existen elementos en DOM
+    /**
+     * @function setupListeners
+     * @description Configura los event listeners para los controles de filtro.
+     */
     function setupListeners() {
         if (searchInput) {
             searchInput.addEventListener('input', applyFiltersAndRender);

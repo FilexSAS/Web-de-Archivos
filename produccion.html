@@ -9,25 +9,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 </head>
 <body>
-    <header class="main-header">
-        <div class="header-content">
-            <div class="logo-area">
-                <img src="imagenes/img1.png" alt="Logo Filex" class="logo-img">
-            </div>
-                <nav class="nav-menu">
-                    <a href="index.html" class="nav-link">Inicio</a>
-                    <span class="divider" aria-hidden="true"></span>
-                    <a href="documentos.html" class="nav-link">Documentos</a>
-                    <span class="divider" aria-hidden="true"></span>
-                    <a href="produccion.html" class="nav-link ">Producción</a>
-                    <span class="divider" aria-hidden="true"></span>
-                    <a href="contacto.html" class="nav-link">Contacto</a>
-                </nav>
-        </div>
-    </header>
+    <header class="header"></header>
 
-    <main class="container">
-        <div class="search-panel mt-4">
+    <main>
+        <div class="container">
+            <div class="search-panel mt-4">
             <div class="search-box d-flex align-items-center">
                 <div class="search-controls d-flex align-items-center">
                     <input id="searchInput" class="form-control search-input" type="search" placeholder="Buscar trabajador, cargo, documento..." aria-label="Buscar">
@@ -51,8 +37,7 @@
                         <option value="TATIANA">TATIANA</option>
                         <option value="MARTHA">MARTHA</option>
                         <option value="INGRID">INGRID</option>
-                        <option value="ANGIE">ANGIE</option>
-                        <option value="WILFER">WILFER</option>
+                        <option value="NICOL">NICOL</option>
                     </select>
                 </div>
 
@@ -74,37 +59,18 @@
             <div id="paginationControls" style="margin-top: 10px;"></div>
         </div>
 
-        <div class="info-card">
+        <div class="info-card" id="formulario-produccion">
             <div class="google-form-container" style="height: 1200px; margin-top: 0;">
                 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSflunee_nAZH7aufqA2LRKTD6XLmrdu5ouzkAxtL7gUWduhdQ/viewform?embedded=true" style="width: 100%; height: 100%; border: none;">Cargando…</iframe>
+            </div>
             </div>
         </div>
     </main>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section footer-contact">
-                <div class="footer-company">
-                    <span class="footer-company-name">DATOS DE CONTANTO SOPORTE WEB</span>
-                    <div class="footer-info"><span></span><br>
-                        <span>+57 3052702985</span><br>
-                        <span>torresdavid.fge@gmail.com</span><br>
-                        <span>Bogotá - Colombia</span>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-section footer-links">
-                <a href="index.html" class="footer-link">Inicio</a>
-                <a href="documentos.html" class="footer-link">Documentos</a>
-                <a href="produccion.html" class="footer-link">Producción</a>
-                <a href="contacto.html" class="footer-link">Contacto</a>
-            </div>
-            <div class="footer-section footer-logo-area">
-                <img src="imagenes/img1.png" alt="Logo Filex" class="logo-img footer-logo-img-large">
-            </div>
-        </div>
-    </footer>
+    <footer></footer>
 
+    <script src="JavaScript/layout.js"></script>
     <script src="JavaScript/scriptExel.js"></script>
+    <script type="text/javascript" src="JavaScript/nav.js"></script>
 </body>
 </html>

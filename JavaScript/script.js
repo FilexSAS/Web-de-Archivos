@@ -1,3 +1,10 @@
+/**
+ * @file script.js
+ * @description Funcionalidad para descargar archivos desde la página.
+ * @version 1.0
+ * @date 2023-10-27
+ */
+
 document.addEventListener('DOMContentLoaded', () => {
     const downloadButtons = document.querySelectorAll('.download-btn');
 
@@ -9,6 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+/**
+ * @function downloadFile
+ * @description Descarga un archivo según el nombre proporcionado.
+ * @param {string} fileName - El nombre del archivo a descargar.
+ */
 function downloadFile(fileName) {
     // Configura aquí las rutas reales de tus archivos
     const files = {
